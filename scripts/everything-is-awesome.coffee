@@ -11,11 +11,9 @@ module.exports = (robot) ->
   awesome = ->
     "Everything is awesome. Everything is cool when you're part of a team. EVERYTHING IS AWESOME!"
 
-  robot.hear /team|awesome/i, (msg) ->
-    msg.send awesome()
+  words = ['team', 'awesome']
+  regex = new RegExp('(?:^|\\s)(' + words.join('|') + ')(?:\\s|\\.|\\?|!|$)', 'i');
 
   unless process.env.HUBOT_LESS_EVERYTHINGISAWESOME
-    robot.hear ///
-      (\b([A-Z]{2,}\s+)([A-Z]{2,})\b)|
-      (\b[A-Z]{5,}\b)
-    ///, (msg) -> msg.send awesome()
+    robot.hear regex, (msg) ->
+      msg.send awesome()
