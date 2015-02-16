@@ -12,13 +12,16 @@
 #   mileszs <miles@mileszs.com> added modifier
 #
 module.exports = (robot) ->
-  robot.respond /(\d+)d(\d+)\+?(\d+)$/i, (res) ->
+  robot.respond /(\d+)d(\d+)\+?(\d?)$/i, (res) ->
     number_of_die = res.match[1]
     die_size = res.match[2]
     modifier = res.match[3] || 0
     results = []
-    sum = [0...number_of_die].reduce (s) ->
-      results.push(s + Math.floor(Math.random() * die_size) + 1)
+    sum = [0...number_of_die].reduce (a, b) ->
+      iter = b + Math.floor(Math.random() * die_size) + 1
+      results.push(iter)
+      a + iter
     , 0
 
-    res.send "(#{results.join(',')}+#{modifier}): #{sum+modifier}"
+    final = sum + modifier
+    res.send "(#{results.join(',')}+#{modifier}): #{final}"
