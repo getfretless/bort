@@ -23,5 +23,4 @@ module.exports = (robot) ->
       a + iter
     , 0
 
-    final = sum + modifier
-    res.send "(#{results.join(',')}+#{modifier}): #{final}"
+    res.send "(#{results.join(',')}+#{modifier}): #{sum + parseInt(modifier, 10)}"
