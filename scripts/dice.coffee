@@ -16,7 +16,8 @@ module.exports = (robot) ->
     number_of_die = res.match[1]
     die_size = res.match[2]
     modifier = res.match[3] || 0
+    results = []
     sum = res.send [0...number_of_die].reduce (s) ->
-      s + Math.floor(Math.random() * die_size) + 1
+      results.push(s + Math.floor(Math.random() * die_size) + 1)
     , 0
-    sum + modifier
+    "(#{results.join(,)}+#{modifier}): #{sum+modifier}"
