@@ -21,4 +21,4 @@ module.exports = (robot) ->
       results.push(s + Math.floor(Math.random() * die_size) + 1)
     , 0
 
-    res.send("(#{results.join(',')}+#{modifier}): #{sum+modifier}")
+    res.send "(#{results.join(',')}+#{modifier}): #{sum+modifier}"
