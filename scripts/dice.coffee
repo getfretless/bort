@@ -12,7 +12,7 @@
 #   mileszs <miles@mileszs.com> added modifier
 #
 module.exports = (robot) ->
-  robot.respond /(\d+)d(\d+)\+?$/i, (res) ->
+  robot.respond /(\d+)d(\d+)\+?(\d+)$/i, (res) ->
     number_of_die = res.match[1]
     die_size = res.match[2]
     modifier = res.match[3] || 0
