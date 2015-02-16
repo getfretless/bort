@@ -8,12 +8,15 @@
 #   hubot <M>d<N> - roll M N-sided dice
 #
 # Author:
-#   bouzuya <m@bouzuya.net>
+#   bouzuya <m@bouzuya.net> initially
+#   mileszs <miles@mileszs.com> added modifier
 #
 module.exports = (robot) ->
-  robot.respond /(\d+)d(\d+)$/i, (res) ->
-    m = res.match[1]
-    n = res.match[2]
-    res.send [0...m].reduce (s) ->
-      s + Math.floor(Math.random() * n) + 1
+  robot.respond /(\d+)d(\d+)\+?$/i, (res) ->
+    number_of_die = res.match[1]
+    die_size = res.match[2]
+    modifier = res.match[3] || 0
+    sum = res.send [0...number_of_die].reduce (s) ->
+      s + Math.floor(Math.random() * die_size) + 1
     , 0
+    sum + modifier
