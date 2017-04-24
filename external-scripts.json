@@ -1,4 +1,5 @@
 [
   "hubot-markov",
-  "hubot-schedule"
+  "hubot-schedule",
+  "hubot-postgres-brain"
 ]
