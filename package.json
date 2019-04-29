@@ -22,8 +22,8 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "clark": "0.0.6",
-    "hubot": "^2.16.0",
-    "hubot-flowdock": ">= 0.7.1",
+    "hubot": "^3.3.2",
+    "hubot-flowdock": ">= 0.7.6",
     "hubot-markov": "~2.0.0",
     "hubot-postgres-brain": "^0.1.0",
     "hubot-schedule": "^0.4.1",
